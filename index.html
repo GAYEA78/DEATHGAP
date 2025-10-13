@@ -6,78 +6,206 @@
     <title>The Death Gap: Theory Map & Reflection</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8fafc;
-        }
-        .concept-card {
-            background-color: white;
-            border-radius: 0.75rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease-in-out;
-        }
-        .concept-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        .arrow {
-            text-align: center;
-            font-size: 2.5rem;
-            color: #9ca3af;
-            line-height: 1;
-        }
-        .primary-concept { border-left: 5px solid #4f46e5; }
-        .secondary-concept { border-left: 5px solid #10b981; }
-        .tertiary-concept { border-left: 5px solid #f97316; }
-        .outcome-concept { border-left: 5px solid #ef4444; }
-        .solution-concept { border-left: 5px solid #3b82f6; }
-        .card-title { color: #4f46e5; }
-        .book-ref {
-            font-size: 0.8rem;
-            color: #6b7280;
-            font-style: italic;
-        }
-        .tab-btn {
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
-            border: 2px solid transparent;
-        }
-        .tab-btn.active {
-            background-color: #4f46e5;
-            color: white;
-        }
-        .tab-btn:not(.active) {
-            color: #4f46e5;
-            background-color: #eef2ff;
-        }
-        .tab-btn:not(.active):hover {
-            background-color: #e0e7ff;
-        }
-        .tab-content {
-            display: none;
-        }
-        .tab-content.active {
-            display: block;
-        }
-        .reflection-text p {
-            margin-bottom: 1rem;
-            line-height: 1.75;
-        }
-    </style>
+<style>
+  body {
+    font-family: 'Inter', sans-serif;
+    background-image: url('images/death_gap.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.25);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .concept-card {
+    background-color: rgba(255,255,255,0.94);
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    transition: all 0.3s ease-in-out;
+  }
+  .concept-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+  }
+  .arrow { text-align: center; font-size: 2.5rem; color: #9ca3af; line-height: 1; }
+  .primary-concept { border-left: 5px solid #4f46e5; }
+  .secondary-concept { border-left: 5px solid #10b981; }
+  .tertiary-concept { border-left: 5px solid #f97316; }
+  .outcome-concept { border-left: 5px solid #ef4444; }
+  .solution-concept { border-left: 5px solid #3b82f6; }
+  .card-title { color: #4f46e5; }
+  .book-ref { font-size: 0.8rem; color: #6b7280; font-style: italic; }
+
+  .tab-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border: 2px solid transparent;
+  }
+  .tab-btn.active { background-color: #4f46e5; color: white; }
+  .tab-btn:not(.active) { color: #4f46e5; background-color: #eef2ff; }
+  .tab-btn:not(.active):hover { background-color: #e0e7ff; }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  .reflection-text p { margin-bottom: 1rem; line-height: 1.75; }
+
+header h1 {
+  color: #ffffff;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+
+header p {
+  color: #f3f4f6;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+}
+
+h2.text-2xl {
+  color: #ffffff;
+  text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.35);
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  border-radius: 0.5rem;
+}
+
+h2.text-2xl {
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
+}
+:root {
+  --glass-bg: rgba(0,0,0,0.40);
+  --glass-bg-hover: rgba(0,0,0,0.55);
+  --glass-border: rgba(255,255,255,0.85);
+  --glass-shadow: rgba(0,0,0,0.45);
+  --radius: 14px;
+  --blur: 12px;
+}
+
+body::before { background: rgba(0,0,0,0.30); }
+
+.glass-box{
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  border: 2px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 30px var(--glass-shadow), 0 0 12px rgba(255,255,255,0.3);
+  color: #fff;
+}
+.glass-box h1,
+.glass-box p { color: #fff; text-shadow: 1px 1px 6px rgba(0,0,0,0.6); }
+.glass-box:hover { background: var(--glass-bg-hover); transform: translateY(-3px); transition: 200ms ease; }
+
+h2.text-2xl{
+  color:#fff !important;
+  display:inline-block;
+  padding:.5rem 1rem;
+  border-radius: var(--radius);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  border:2px solid var(--glass-border);
+  box-shadow: 0 6px 22px var(--glass-shadow), 0 0 10px rgba(255,255,255,0.25);
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+}
+
+.concept-card{
+  background: rgba(0,0,0,0.35) !important;
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  border:2px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 28px var(--glass-shadow), 0 0 12px rgba(255,255,255,0.25);
+}
+.concept-card:hover{
+  background: rgba(0,0,0,0.5) !important;
+  transform: translateY(-5px);
+}
+
+.concept-card h3,
+.concept-card p,
+.concept-card li,
+.concept-card .book-ref { color:#f3f4f6 !important; }
+.concept-card .book-ref { opacity: .9; }
+
+.primary-concept { border-left: 5px solid #4f46e5; }
+.secondary-concept { border-left: 5px solid #10b981; }
+.tertiary-concept  { border-left: 5px solid #f97316; }
+.outcome-concept   { border-left: 5px solid #ef4444; }
+.solution-concept  { border-left: 5px solid #3b82f6; }
+
+.tab-btn{
+  background: rgba(255,255,255,0.08) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color:#fff !important;
+  border:2px solid var(--glass-border);
+  border-radius: 999px;
+  box-shadow: 0 6px 20px var(--glass-shadow), 0 0 10px rgba(255,255,255,0.25);
+}
+.tab-btn.active{ background: rgba(255,255,255,0.20) !important; }
+.tab-btn:hover{ transform: translateY(-2px); background: rgba(255,255,255,0.28) !important; color:#ffd700 !important; }
+
+header h1, header p { color:#fff !important; }
+.arrow { color:#e5e7eb; }
+
+@media (prefers-reduced-motion: reduce){
+  .glass-box, .concept-card, .tab-btn { transition:none !important; transform:none !important; }
+}
+
+.arrow{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width: min(120px, 22vw);
+  height: min(120px, 22vw);
+  margin: 2rem auto;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 2px solid rgba(255,255,255,0.95);
+  border-radius: 9999px;
+  box-shadow:
+    0 10px 32px rgba(0,0,0,0.55),
+    0 0 18px rgba(255,255,255,0.55);
+  color: #ffffff !important;
+  font-size: clamp(2.5rem, 8vw, 4.25rem);
+  line-height: 1;
+  text-shadow:
+    0 3px 14px rgba(0,0,0,0.75),
+    0 0 12
+}
+</style>
+
 </head>
 <body class="p-4 md:p-8">
 
     <div class="max-w-7xl mx-auto">
-        <header class="text-center mb-8">
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-800">Theory Map & Reflection: The Death Gap</h1>
-            <p class="mt-2 text-lg text-gray-600">Analyzing David Ansell's Work Through the Lens of Paul Farmer</p>
-        </header>
+<header class="text-center mb-8">
+  <div class="glass-box inline-block px-6 py-4 rounded-xl">
+    <h1 class="text-3xl md:text-4xl font-bold">Theory Map & Reflection: The Death Gap</h1>
+    <p class="mt-2 text-lg">Analyzing David Ansell's Work Through the Lens of Paul Farmer</p>
+  </div>
+</header>
 
-        <!-- Tab Navigation -->
         <div class="mb-8 flex flex-wrap justify-center gap-2 md:gap-4">
             <button class="tab-btn active" onclick="openTab(event, 'theory-map')">Theory Map</button>
             <button class="tab-btn" onclick="openTab(event, 'explains')">What it Explains</button>
@@ -85,9 +213,7 @@
             <button class="tab-btn" onclick="openTab(event, 'reconstruct')">Reconstructing Theory</button>
         </div>
 
-        <!-- Tab Content -->
         <div>
-            <!-- Theory Map Tab -->
             <div id="theory-map" class="tab-content active">
                 <div class="mb-8">
                     <div class="concept-card primary-concept p-6">
@@ -194,7 +320,6 @@
                 </div>
             </div>
 
-            <!-- What it Explains Tab -->
             <div id="explains" class="tab-content">
                 <div class="concept-card p-6 md:p-8 reflection-text">
                     <h2 class="text-2xl font-bold text-gray-800 mb-4">What the Theory Explains: Structural Violence as the Root Cause</h2>
@@ -202,7 +327,6 @@
                 </div>
             </div>
 
-            <!-- What it Obscures Tab -->
             <div id="obscures" class="tab-content">
                 <div class="concept-card p-6 md:p-8 reflection-text">
                     <h2 class="text-2xl font-bold text-gray-800 mb-4">What the Theory Obscures: Community Agency and Resilience</h2>
@@ -210,7 +334,6 @@
                 </div>
             </div>
 
-            <!-- Reconstructing Theory Tab -->
             <div id="reconstruct" class="tab-content">
                 <div class="concept-card p-6 md:p-8 reflection-text">
                     <h2 class="text-2xl font-bold text-gray-800 mb-4">Reconstructing the Theory: Integrating Community Efficacy</h2>
@@ -222,20 +345,17 @@
 
     <script>
         function openTab(evt, tabName) {
-            // Get all elements with class="tab-content" and hide them
             var tabcontent = document.getElementsByClassName("tab-content");
             for (var i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
                 tabcontent[i].classList.remove("active");
             }
 
-            // Get all elements with class="tab-btn" and remove the class "active"
             var tablinks = document.getElementsByClassName("tab-btn");
             for (var i = 0; i < tablinks.length; i++) {
                 tablinks[i].classList.remove("active");
             }
 
-            // Show the current tab, and add an "active" class to the button that opened the tab
             document.getElementById(tabName).style.display = "block";
             document.getElementById(tabName).classList.add("active");
             evt.currentTarget.classList.add("active");
@@ -243,4 +363,3 @@
     </script>
 </body>
 </html>
-
