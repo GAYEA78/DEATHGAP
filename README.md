@@ -1,93 +1,97 @@
-# The Death Gap: Theory Map and Reflection
+# The Death Gap: Theory Map & Reflection
 
-### A research-based visual model linking structural violence to health inequality in Chicago, based on the work of David Ansell and Paul Farmer.
+### Analyzing David Ansell’s *The Death Gap* through the Neo-Marxist Framework of Muntaner et al.
 
 **Live Site:** [http://aronagaye.me/DEATHGAP/](http://aronagaye.me/DEATHGAP/)
 
------
+---
 
-##  Purpose
+## Purpose
 
-This project presents a visual model that connects **Paul Farmer’s theory of structural violence** with **David Ansell’s fieldwork** in *The Death Gap*. It supports a sociological analysis of how inequality creates predictable, fatal health outcomes across Chicago's neighborhoods.
+This project visually and conceptually connects **Muntaner et al.’s Neo-Marxist theory of class and health inequality** to **David Ansell’s field analysis** in *The Death Gap: How Inequality Kills*. It explores how economic exploitation, racial segregation, and structural domination create predictable health disparities across Chicago’s neighborhoods.
 
-  - **Course Context:** Sociology of Health and Illness
-  - **Primary Text:** David A. Ansell, *The Death Gap: How Inequality Kills*. University of Chicago Press, 2017.
+* **Course Context:** Sociology of Health and Illness
+* **Primary Texts:**
+
+  * David A. Ansell, *The Death Gap: How Inequality Kills* (University of Chicago Press, 2017)
+  * Muntaner et al., *Two Decades of Neo-Marxist Class Analysis and Health Inequalities: A Critical Reconstruction* (Social Theory & Health, 2015)
 
 > ### Core Claim
 >
-> Health inequality follows social structure. Policy, race, and geography are powerful predictors of disease and life expectancy.
+> Health inequality is not random, it is produced by class exploitation and maintained through systems of racialized and legal exclusion.
 
------
+---
 
-##  Content Overview
+## Content Overview
 
-The site is organized into four main tabs, each serving a distinct analytical function:
+The site is structured around four interactive sections that guide users from theory to critical reconstruction:
 
-  * **Theory Map:** Models structural violence from its root causes (e.g., racism, policy) to its ultimate outcome (the death gap).
-  * **What It Explains:** Links the abstract theory to observed data and predictable health disparities.
-  * **What It Obscures:** Highlights the limitations of a purely structural model by acknowledging community agency and resilience.
-  * **Reconstructing Theory:** Proposes an enhanced model that integrates the concept of collective efficacy as a mitigating factor.
+* **Theory Map:** Outlines the Neo-Marxist class framework (Muntaner et al.) and maps it onto mechanisms of exploitation and domination evident in *The Death Gap*.
+* **What It Explains:** Shows how Muntaner’s theory clarifies the structural roots of inequality — specifically, how the well-being of the wealthy depends on the deprivation of the poor.
+* **What It Can’t Explain:** Identifies the framework’s limits, especially its underemphasis on race, immigration status, and other intersecting systems of hierarchy.
+* **Reconstructing Theory:** Proposes an expanded model integrating racial capitalism and intersectionality to explain how class, race, and legal status jointly produce “structural violence.”
 
------
+---
 
-##  How to Use It
+## Key Concepts
 
-1.  **Begin at the Theory Map tab.**
-2.  Follow the logical flow from macro-level **structural causes** down to micro-level **health outcomes**.
-3.  Note each **mechanism** (e.g., disinvestment, segregation) and its cited evidence.
-4.  Use the framework to analyze a local or comparative case study of health inequality.
+### 1. Exploitation as the Cause of Inequality
 
------
+Health disparities arise from exploitative economic relations where the welfare of one class depends on the deprivation of another — what Muntaner calls the **inverse interdependent welfare principle**.
 
-##  Key Mechanisms Driving the Gap
+### 2. Domination and Social Control
 
-The model identifies four interconnected mechanisms of structural violence:
+Systems like **mass incarceration**, **segregated healthcare**, and **employment-based insurance** are mechanisms that enforce class domination and restrict access to life-sustaining resources.
 
-  * **Economic Exploitation & Disinvestment:** The historical and ongoing impact of redlining, contract selling, and industry flight.
-  * **Racial Segregation & Concentrated Disadvantage:** The role of hypersegregation in reducing collective efficacy and concentrating poverty.
-  * **Social & Environmental Determinants:** The creation of food deserts and the disproportionate exposure of minority communities to environmental toxins.
-  * **Separate & Unequal Systems:** The legacy of segregated hospitals and the persistent denial of adequate care based on race and geography.
+### 3. The Importance of Race and Other Hierarchies
 
------
+While class exploitation is central, **race** functions as a distinct and interlocking structure of inequality. Ansell shows that even when income is equal, Black Americans experience higher mortality, revealing racialized mechanisms beyond class alone.
 
-##  What the Model Explains
+### 4. Reconstructing Theory
 
-  * Predictable and severe health disparities between different neighborhoods.
-  * The **embodied effects** of chronic stress, poverty, and discrimination on human biology.
-  * The clear and persistent pattern linking a person's **place of residence to their life expectancy**.
+A more complete model integrates **racial capitalism** and **intersectionality**, treating class exploitation and racialization as **mutually constitutive** forces. This lens explains how exploitation extends beyond the workplace to include:
 
-> ### Action Framework
->
-> The project follows a three-part framework for social justice:
->
-> 1.  **Observe:** Document and visualize suffering with concrete data.
-> 2.  **Judge:** Identify the upstream structural causes of that suffering.
-> 3.  **Act:** Engage in pragmatic solidarity and advocate for systemic reform.
+* The extraction of wealth through redlining and predatory lending
+* The hyper-exploitation of labor through incarceration
+* The exclusion from healthcare based on race or immigration status
 
------
+---
 
-##  Design & Accessibility
+## How to Use It
+
+1. Start with the **Theory Map** tab to understand Muntaner’s Neo-Marxist model.
+2. Move through **What It Explains** and **What It Can’t Explain** to evaluate the framework’s scope and limits.
+3. End at **Reconstructing Theory**, which synthesizes insights from racial capitalism and intersectionality to form a more complete model of “structural violence.”
+4. Use the visual flow to trace how class relations, racial hierarchies, and legal exclusions converge to produce the *death gap*.
+
+---
+
+## Design & Accessibility
 
 ### Design
 
-The site was built with a focus on clarity and user experience.
-
-  * **Tabbed Interface:** Separates distinct analytical sections for easy navigation.
-  * **Responsive Layout:** Ensures usability across devices, from desktops to mobile phones.
-  * **Glassmorphism Style:** Uses a modern, high-contrast aesthetic for visual appeal and readability.
+* **Glassmorphism Interface:** Semi-transparent “glass” elements over a dark photographic background evoke visibility and opacity — key metaphors for structural violence.
+* **Tabbed Navigation:** Separates complex ideas into clear, digestible sections.
+* **Responsive Layout:** Optimized for both desktop and mobile displays.
 
 ### Accessibility
 
-  * **Readable Typography:** Uses clear, legible fonts and adequate sizing.
-  * **High Color Contrast:** Designed to be accessible for users with low vision.
-  * **Reduced Motion:** Keeps animations minimal to accommodate users who prefer a static experience.
+* **Readable Typography (Inter Font Family)**
+* **High Contrast and Reduced Motion for Accessibility Preferences**
+* **Semantic HTML for Screen Readers**
 
------
+---
 
-##  Citation
+## Citation
 
 ```
-Ansell, David A. The Death Gap: How Inequality Kills. 
-Chicago, IL: University of Chicago Press, 2017. 
-ISBN 022642815X.
+Ansell, David A. *The Death Gap: How Inequality Kills.*  
+Chicago: University of Chicago Press, 2017. ISBN 022642815X.
+
+Muntaner, Carles, Edwin Ng, Haejoo Chung, and Seth J. Prins.  
+"Two Decades of Neo-Marxist Class Analysis and Health Inequalities:  
+A Critical Reconstruction." *Social Theory & Health* 13, no. 3–4 (2015): 267–287.  
+https://doi.org/10.1057/sth.2015.17
 ```
+
+---
