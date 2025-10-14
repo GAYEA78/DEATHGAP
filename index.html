@@ -9,7 +9,7 @@
 <style>
   body {
     font-family: 'Inter', sans-serif;
-    background-image: url('images/death_gap.webp');
+    background-image: url('https://storage.googleapis.com/gemini-prod/images/03b53f6c-e525-420a-9d22-259160538a7c.webp');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -20,196 +20,137 @@
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.25);
+    background: rgba(0,0,0,0.30);
     pointer-events: none;
     z-index: -1;
   }
 
-  .concept-card {
-    background-color: rgba(255,255,255,0.94);
-    border-radius: 0.75rem;
-    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  :root {
+    --glass-bg: rgba(0,0,0,0.40);
+    --glass-bg-hover: rgba(0,0,0,0.55);
+    --glass-border: rgba(255,255,255,0.85);
+    --glass-shadow: rgba(0,0,0,0.45);
+    --radius: 14px;
+    --blur: 12px;
+  }
+
+  .glass-box{
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--blur));
+    -webkit-backdrop-filter: blur(var(--blur));
+    border: 2px solid var(--glass-border);
+    border-radius: var(--radius);
+    box-shadow: 0 8px 30px var(--glass-shadow), 0 0 12px rgba(255,255,255,0.3);
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+  }
+  .glass-box h1,
+  .glass-box p { color: #fff; text-shadow: 1px 1px 6px rgba(0,0,0,0.6); }
+  .glass-box:hover { background: var(--glass-bg-hover); transform: translateY(-3px); }
+
+  h2.text-2xl{
+    color:#fff !important;
+    display:inline-block;
+    padding:.5rem 1rem;
+    border-radius: var(--radius);
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--blur));
+    -webkit-backdrop-filter: blur(var(--blur));
+    border:2px solid var(--glass-border);
+    box-shadow: 0 6px 22px var(--glass-shadow), 0 0 10px rgba(255,255,255,0.25);
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+  }
+
+  .concept-card{
+    background: rgba(0,0,0,0.35) !important;
+    backdrop-filter: blur(var(--blur));
+    -webkit-backdrop-filter: blur(var(--blur));
+    border:2px solid var(--glass-border);
+    border-radius: var(--radius);
+    box-shadow: 0 10px 28px var(--glass-shadow), 0 0 12px rgba(255,255,255,0.25);
     transition: all 0.3s ease-in-out;
   }
-  .concept-card:hover {
+  .concept-card:hover{
+    background: rgba(0,0,0,0.5) !important;
     transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
   }
-  .arrow { text-align: center; font-size: 2.5rem; color: #9ca3af; line-height: 1; }
-  .primary-concept { border-left: 5px solid #4f46e5; }
-  .secondary-concept { border-left: 5px solid #10b981; }
-  .tertiary-concept { border-left: 5px solid #f97316; }
-  .outcome-concept { border-left: 5px solid #ef4444; }
-  .solution-concept { border-left: 5px solid #3b82f6; }
-  .card-title { color: #4f46e5; }
-  .book-ref { font-size: 0.8rem; color: #6b7280; font-style: italic; }
 
-  .tab-btn {
+  .concept-card h3,
+  .concept-card p,
+  .concept-card li,
+  .concept-card .book-ref { color:#f3f4f6 !important; }
+  .concept-card .book-ref { opacity: .9; }
+  .card-title { color: #818cf8; }
+  .book-ref { font-size: 0.8rem; color: #d1d5db; font-style: italic; }
+
+  .primary-concept { border-left: 5px solid #6366f1; }
+  .secondary-concept { border-left: 5px solid #10b981; }
+  .tertiary-concept  { border-left: 5px solid #f97316; }
+  .outcome-concept    { border-left: 5px solid #ef4444; }
+  .solution-concept  { border-left: 5px solid #3b82f6; }
+
+  .tab-btn{
     padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
+    border-radius: 999px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    border: 2px solid transparent;
+    background: rgba(255,255,255,0.08) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color:#fff !important;
+    border:2px solid var(--glass-border);
+    box-shadow: 0 6px 20px var(--glass-shadow), 0 0 10px rgba(255,255,255,0.25);
   }
-  .tab-btn.active { background-color: #4f46e5; color: white; }
-  .tab-btn:not(.active) { color: #4f46e5; background-color: #eef2ff; }
-  .tab-btn:not(.active):hover { background-color: #e0e7ff; }
+  .tab-btn.active{ background: rgba(255,255,255,0.20) !important; }
+  .tab-btn:hover{ transform: translateY(-2px); background: rgba(255,255,255,0.28) !important; }
 
   .tab-content { display: none; }
   .tab-content.active { display: block; }
 
   .reflection-text p { margin-bottom: 1rem; line-height: 1.75; }
 
-header h1 {
-  color: #ffffff;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
-}
+  header h1, header p { color:#fff !important; text-shadow: 2px 2px 8px rgba(0,0,0,0.6); }
 
-header p {
-  color: #f3f4f6;
-  text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
-}
+  .arrow{
+    text-align: center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width: min(120px, 22vw);
+    height: min(120px, 22vw);
+    margin: 2rem auto;
+    background: rgba(0,0,0,0.55);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 2px solid rgba(255,255,255,0.95);
+    border-radius: 9999px;
+    box-shadow: 0 10px 32px rgba(0,0,0,0.55), 0 0 18px rgba(255,255,255,0.55);
+    color: #ffffff !important;
+    font-size: clamp(2.5rem, 8vw, 4.25rem);
+    line-height: 1;
+    text-shadow: 0 3px 14px rgba(0,0,0,0.75), 0 0 12px rgba(255,255,255,0.4);
+  }
 
-h2.text-2xl {
-  color: #ffffff;
-  text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
-  background: rgba(0,0,0,0.35);
-  display: inline-block;
-  padding: 0.3rem 0.75rem;
-  border-radius: 0.5rem;
-}
-
-h2.text-2xl {
-  background: rgba(0, 0, 0, 0.6);
-  color: #ffffff;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  display: inline-block;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-  backdrop-filter: blur(4px);
-}
-:root {
-  --glass-bg: rgba(0,0,0,0.40);
-  --glass-bg-hover: rgba(0,0,0,0.55);
-  --glass-border: rgba(255,255,255,0.85);
-  --glass-shadow: rgba(0,0,0,0.45);
-  --radius: 14px;
-  --blur: 12px;
-}
-
-body::before { background: rgba(0,0,0,0.30); }
-
-.glass-box{
-  background: var(--glass-bg);
-  backdrop-filter: blur(var(--blur));
-  -webkit-backdrop-filter: blur(var(--blur));
-  border: 2px solid var(--glass-border);
-  border-radius: var(--radius);
-  box-shadow: 0 8px 30px var(--glass-shadow), 0 0 12px rgba(255,255,255,0.3);
-  color: #fff;
-}
-.glass-box h1,
-.glass-box p { color: #fff; text-shadow: 1px 1px 6px rgba(0,0,0,0.6); }
-.glass-box:hover { background: var(--glass-bg-hover); transform: translateY(-3px); transition: 200ms ease; }
-
-h2.text-2xl{
-  color:#fff !important;
-  display:inline-block;
-  padding:.5rem 1rem;
-  border-radius: var(--radius);
-  background: var(--glass-bg);
-  backdrop-filter: blur(var(--blur));
-  -webkit-backdrop-filter: blur(var(--blur));
-  border:2px solid var(--glass-border);
-  box-shadow: 0 6px 22px var(--glass-shadow), 0 0 10px rgba(255,255,255,0.25);
-  text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
-}
-
-.concept-card{
-  background: rgba(0,0,0,0.35) !important;
-  backdrop-filter: blur(var(--blur));
-  -webkit-backdrop-filter: blur(var(--blur));
-  border:2px solid var(--glass-border);
-  border-radius: var(--radius);
-  box-shadow: 0 10px 28px var(--glass-shadow), 0 0 12px rgba(255,255,255,0.25);
-}
-.concept-card:hover{
-  background: rgba(0,0,0,0.5) !important;
-  transform: translateY(-5px);
-}
-
-.concept-card h3,
-.concept-card p,
-.concept-card li,
-.concept-card .book-ref { color:#f3f4f6 !important; }
-.concept-card .book-ref { opacity: .9; }
-
-.primary-concept { border-left: 5px solid #4f46e5; }
-.secondary-concept { border-left: 5px solid #10b981; }
-.tertiary-concept  { border-left: 5px solid #f97316; }
-.outcome-concept   { border-left: 5px solid #ef4444; }
-.solution-concept  { border-left: 5px solid #3b82f6; }
-
-.tab-btn{
-  background: rgba(255,255,255,0.08) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  color:#fff !important;
-  border:2px solid var(--glass-border);
-  border-radius: 999px;
-  box-shadow: 0 6px 20px var(--glass-shadow), 0 0 10px rgba(255,255,255,0.25);
-}
-.tab-btn.active{ background: rgba(255,255,255,0.20) !important; }
-.tab-btn:hover{ transform: translateY(-2px); background: rgba(255,255,255,0.28) !important; color:#ffd700 !important; }
-
-header h1, header p { color:#fff !important; }
-.arrow { color:#e5e7eb; }
-
-@media (prefers-reduced-motion: reduce){
-  .glass-box, .concept-card, .tab-btn { transition:none !important; transform:none !important; }
-}
-
-.arrow{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  width: min(120px, 22vw);
-  height: min(120px, 22vw);
-  margin: 2rem auto;
-  background: rgba(0,0,0,0.55);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 2px solid rgba(255,255,255,0.95);
-  border-radius: 9999px;
-  box-shadow:
-    0 10px 32px rgba(0,0,0,0.55),
-    0 0 18px rgba(255,255,255,0.55);
-  color: #ffffff !important;
-  font-size: clamp(2.5rem, 8vw, 4.25rem);
-  line-height: 1;
-  text-shadow:
-    0 3px 14px rgba(0,0,0,0.75),
-    0 0 12
-}
+  @media (prefers-reduced-motion: reduce){
+    .glass-box, .concept-card, .tab-btn { transition:none !important; transform:none !important; }
+  }
 </style>
-
 </head>
 <body class="p-4 md:p-8">
 
     <div class="max-w-7xl mx-auto">
-<header class="text-center mb-8">
-  <div class="glass-box inline-block px-6 py-4 rounded-xl">
-    <h1 class="text-3xl md:text-4xl font-bold">Theory Map & Reflection: The Death Gap</h1>
-    <p class="mt-2 text-lg">Analyzing David Ansell's Work Through the Lens of Paul Farmer</p>
-  </div>
-</header>
+        <header class="text-center mb-8">
+            <div class="glass-box inline-block px-6 py-4 rounded-xl">
+                <h1 class="text-3xl md:text-4xl font-bold">Theory Map & Reflection: The Death Gap</h1>
+                <p class="mt-2 text-lg">Analyzing David Ansell's Work Through the Lens of Muntaner et al.</p>
+            </div>
+        </header>
 
         <div class="mb-8 flex flex-wrap justify-center gap-2 md:gap-4">
             <button class="tab-btn active" onclick="openTab(event, 'theory-map')">Theory Map</button>
             <button class="tab-btn" onclick="openTab(event, 'explains')">What it Explains</button>
-            <button class="tab-btn" onclick="openTab(event, 'obscures')">What it Obscures</button>
+            <button class="tab-btn" onclick="openTab(event, 'obscures')">What it can't explain</button>
             <button class="tab-btn" onclick="openTab(event, 'reconstruct')">Reconstructing Theory</button>
         </div>
 
@@ -217,73 +158,74 @@ header h1, header p { color:#fff !important; }
             <div id="theory-map" class="tab-content active">
                 <div class="mb-8">
                     <div class="concept-card primary-concept p-6">
-                        <h2 class="text-xl font-bold card-title mb-2">I. The Root Cause: Structural Violence (Paul Farmer)</h2>
-                        <p class="text-gray-700">The concept that social structures—economic, political, legal, and cultural—are organized in a way that puts specific groups and populations in harm's way. This violence is not direct but is "structured" into society, preventing people from meeting their basic needs and leading to premature suffering and death.</p>
-                        <p class="book-ref mt-3">"The deadliest and most thoroughgoing kind of violence is woven into the fabric of American society." - The Death Gap, Ch. 1</p>
+                        <h2 class="text-xl font-bold card-title mb-2">I. The Root Cause: Neo-Marxist Class Analysis (Muntaner et al.)</h2>
+                        <p>From my understanding, I see social class is not just an individual attribute (like income or education) but a social relationship defined by someone's position within the system of economic production. I believe that health inequalities are produced by the mechanisms of exploitation (the material welfare of one class depending on the deprivation of another) and domination (control over the labor of others).</p>
+                        <p class="book-ref mt-3">"The Neo-Marxist approach views social class in terms of class relations that give persons control over productive assets and the labour power of others." - Muntaner et al.</p>
                     </div>
                 </div>
                 <div class="arrow mb-8">↓</div>
                 <div class="mb-8">
-                    <h2 class="text-2xl font-semibold text-center text-gray-700 mb-6">II. Mechanisms of Structural Violence in "The Death Gap"</h2>
+                    <h2 class="text-2xl font-semibold text-center mb-6">II. Mechanisms of Exploitation & Domination in "The Death Gap"</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         <div class="concept-card secondary-concept p-6">
-                            <h3 class="font-semibold text-lg text-gray-800 mb-2">Economic Exploitation & Disinvestment</h3>
-                            <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                <li><strong>Redlining:</strong> Racist bank lending policies backed by the federal government.</li>
-                                <li><strong>Blockbusting & Contract Selling:</strong> Predatory real estate practices that destabilized neighborhoods.</li>
-                                <li><strong>Flight of Industry:</strong> Loss of stable, well-paying jobs from urban centers.</li>
+                            <h3 class="font-semibold text-lg mb-2">Economic Exploitation</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><strong>Wealth Appropriation:</strong> Terrible practices like redlining and blockbusting take wealth from one class (homeowners in Black neighborhoods) and transfer it to another (speculators, banks).</li>
+                                <li><strong>Exclusion from Resources:</strong> When banks refuse to give home loans to certain groups of people, it stops them from being able to buy a house. Since owning a home is a primary way families build wealth, this practice locks them out of a key way to become financially secure.</li>
+                                <li><strong>Labor Exploitation:</strong> When factories or companies move away, it shows how powerful big business is, it can leave workers behind, taking away their jobs and health insurance.</li>
                             </ul>
-                            <p class="book-ref mt-3">Ref: The Death Gap, Ch. 3 "Location, Location, Location"</p>
+                            <p class="book-ref mt-3">Ref: The Death Gap, Ch. 3</p>
                         </div>
                         <div class="concept-card secondary-concept p-6">
-                            <h3 class="font-semibold text-lg text-gray-800 mb-2">Racial Segregation & Concentrated Disadvantage</h3>
-                            <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                <li><strong>Hypersegregation:</strong> Creation of "two Americas"—one of concentrated advantage and one of disadvantage.</li>
-                                <li><strong>Placeism:</strong> How geography becomes destiny, determining access to resources and opportunities.</li>
-                                <li><strong>Erosion of "Collective Efficacy":</strong> Weakening of social cohesion and trust in impoverished communities.</li>
-                            </ul>
-                            <p class="book-ref mt-3">Ref: The Death Gap, Ch. 11 "Community Efficacy"</p>
-                        </div>
-                        <div class="concept-card secondary-concept p-6">
-                            <h3 class="font-semibold text-lg text-gray-800 mb-2">Social & Environmental Determinants</h3>
-                            <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                <li><strong>Food Deserts:</strong> Lack of access to healthy, affordable food.</li>
-                                <li><strong>Environmental Racism:</strong> Disproportionate exposure to toxins and pollution (e.g., Flint, MI).</li>
-                                <li><strong>Chronic Stress:</strong> Constant exposure to violence, poverty, and discrimination.</li>
-                            </ul>
-                            <p class="book-ref mt-3">Ref: The Death Gap, Ch. 5 "The Three Bs"</p>
-                        </div>
-                        <div class="concept-card secondary-concept p-6">
-                            <h3 class="font-semibold text-lg text-gray-800 mb-2">Separate & Unequal Systems</h3>
-                            <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                <li><strong>Mass Incarceration:</strong> A system of racial and social control that devastates community health.</li>
-                                <li><strong>Health Care Apartheid:</strong> Segregated, under-resourced hospitals serving minority communities.</li>
-                                <li><strong>Lack of Insurance/Access:</strong> Denial of care based on economic or immigration status.</li>
+                            <h3 class="font-semibold text-lg mb-2">Domination & Social Control</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><strong>Mass Incarceration:</strong> A system that removes a segment of the working class (disproportionately Black men) from society, fracturing communities and families.</li>
+                                <li><strong>Health Care as a Commodity:</strong> A system where access to care is controlled by employers and insurance companies (capital/management), denying it to those without the "right" class position.</li>
+                                <li><strong>"Separate & Unequal" Systems:</strong> Creation of under-resourced hospitals for the poor, reinforcing class-based divisions in care.</li>
                             </ul>
                             <p class="book-ref mt-3">Ref: The Death Gap, Ch. 7 & 9</p>
                         </div>
+                        <div class="concept-card secondary-concept p-6">
+                            <h3 class="font-semibold text-lg mb-2">Individualization of Social Problems</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><strong>Critique of "The Three Bs":</strong> Ansell’s rejection of Beliefs, Behavior, and Biology as main causes is similar to Muntaner’s criticism of explaining class only through personal traits.</li>
+                                <li><strong>Obscuring Mechanisms:</strong> Blaming individual choices (like buying junk food) hides the bigger systemic problems (like food deserts and lack of investment) that actually shape those choices.
+</li>
+                            </ul>
+                            <p class="book-ref mt-3">Ref: The Death Gap, Ch. 5</p>
+                        </div>
+                        <div class="concept-card secondary-concept p-6">
+                            <h3 class="font-semibold text-lg mb-2">Creation of Disadvantaged Class Locations</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><strong>Concentrated Disadvantage:</strong> The result of many years of exploitation and segregation, leading to whole neighborhoods stuck in an exploited class position with little access to resources.
+</li>
+                                <li><strong>Erosion of "Collective Efficacy":</strong> The loss of community strength and unity caused directly by economic neglect and social upheaval.
+</li>
+                            </ul>
+                            <p class="book-ref mt-3">Ref: The Death Gap, Ch. 11</p>
+                        </div>
                     </div>
                 </div>
                 <div class="arrow mb-8">↓</div>
                 <div class="mb-8">
-                    <h2 class="text-2xl font-semibold text-center text-gray-700 mb-6">III. Biological Embodiment: How Inequity Becomes Sickness</h2>
+                    <h2 class="text-2xl font-semibold text-center mb-6">III. Health Consequences of Class Relations</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="concept-card tertiary-concept p-6">
-                            <h3 class="font-semibold text-lg text-gray-800 mb-2">Individual & Community Health Consequences</h3>
-                            <p class="text-gray-700 mb-3">Farmer argues that suffering is "embodied." The structural forces are not abstract; they manifest as physical illness in individuals. Ansell's book provides the case studies.</p>
-                            <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                <li><strong>Chronic Disease:</strong> Higher rates of diabetes, hypertension, and heart disease (e.g., Windora Bradley's stroke).</li>
-                                <li><strong>"Biological Weathering":</strong> Chronic stress leads to accelerated aging and cellular damage.</li>
-                                <li><strong>Trauma & Violence:</strong> The physical and psychological toll of living in unsafe environments (e.g., Damian Turner).</li>
+                            <h3 class="font-semibold text-lg mb-2">Embodiment of Exploitation</h3>
+                            <p class="mb-3">The physical and psychological toll of living in an exploited class position.</p>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><strong>Chronic Disease:</strong> Higher rates of diabetes, hypertension, and stroke (Windora Bradley) resulting from the stress and material deprivation of poverty.</li>
+                                <li><strong>"Biological Weathering":</strong> Accelerated aging as a physical manifestation of the lifelong stress associated with subordinate class and racial positions.</li>
+                                <li><strong>Trauma & Violence:</strong> Physical harm (Damian Turner) concentrated in neighborhoods stripped of economic opportunity and social stability.</li>
                             </ul>
                         </div>
                         <div class="concept-card tertiary-concept p-6">
-                            <h3 class="font-semibold text-lg text-gray-800 mb-2">Failures in the Healthcare System</h3>
-                            <p class="text-gray-700 mb-3">Access to healthcare is not enough; the quality of care is also a product of structural violence.</p>
-                            <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                <li><strong>Missed/Late Diagnoses:</strong> Substandard facilities in poor neighborhoods lead to worse outcomes (e.g., Chicago's breast cancer gap).</li>
-                                <li><strong>Denial of Lifesaving Care:</strong> Patients are denied treatments like organ transplants due to insurance or immigration status.</li>
-                                <li><strong>"Failure to Rescue":</strong> Higher mortality rates in under-resourced, minority-serving hospitals.</li>
+                            <h3 class="font-semibold text-lg mb-2">Health System Failures</h3>
+                            <p class="mb-3">How the healthcare system reinforces and reproduces class-based inequalities.</p>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li><strong>Unequal Quality:</strong> Poorly funded hospitals that mainly serve minority communities often provide lower-quality care, causing missed diagnoses and higher death rates (like in Chicago’s breast cancer gap)</li>
+                                <li><strong>Denial of Care:</strong> The clearest example of class power, where people are denied lifesaving care because they can’t afford it or lack insurance or legal status.
+.</li>
                             </ul>
                         </div>
                     </div>
@@ -291,53 +233,59 @@ header h1, header p { color:#fff !important; }
                 <div class="arrow mb-8">↓</div>
                 <div class="mb-8">
                     <div class="concept-card outcome-concept p-6 text-center">
-                        <h2 class="text-xl font-bold text-red-600 mb-2">IV. The Outcome: The Death Gap</h2>
-                        <p class="text-gray-700 text-lg">The measurable, tragic, and predictable result of structural violence: a vast and unjust difference in life expectancy between neighborhoods, often just miles apart.</p>
-                        <p class="text-2xl font-bold text-gray-800 mt-4">A 16-Year Life Expectancy Gap Across Chicago</p>
-                        <p class="book-ref mt-3">"Where you live dictates when you die." - The Death Gap, Preface</p>
+                        <h2 class="text-xl font-bold mb-2">IV. The Outcome: The Death Gap</h2>
+                        <p class="text-lg">The greatest health inequality caused by class: a large, unfair, and predictable gap in life expectancy between social classes, clearly visible across different neighborhoods.</p>
+                        <p class="text-2xl font-bold mt-4">A 16-Year Life Expectancy Gap Across Chicago</p>
+                        <p class="book-ref mt-3">"Where you live dictates when you die." - The Death Gap, Preface Page 8</p>
                     </div>
                 </div>
                 <div class="arrow mb-8">↓</div>
                 <div class="mb-8">
                     <div class="concept-card solution-concept p-6">
-                        <h2 class="text-xl font-bold text-blue-600 mb-3">V. The Cure: A Framework for Action (Observe, Judge, Act)</h2>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <h2 class="text-xl font-bold mb-3">V. The Cure: A "Bottom-Up" Class Struggle for Health</h2>
+                        <p>Muntaner et al. argue against focusing on "policy implications" for elites and instead call for engaging with working-class movements to challenge the structures of inequality. This aligns perfectly with Ansell's focus on community activism.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
                             <div>
-                                <h3 class="font-semibold text-lg text-gray-800">1. Observe</h3>
-                                <p class="text-gray-600">Acknowledge and document the suffering. Use data and patient stories to make the "invisible" death gap visible to all.</p>
+                                <h3 class="font-semibold text-lg">Challenging Domination</h3>
+                                <p>Community organizing and direct action (like the trauma center campaign or transplant hunger strikes) are types of class struggle that push powerful institutions (big businesses or elites) to meet the needs of the community and working class.
+</p>
                             </div>
                             <div>
-                                <h3 class="font-semibold text-lg text-gray-800">2. Judge</h3>
-                                <p class="text-gray-600">Analyze the root causes. Correctly identify structural violence—racism, poverty, and policy—as the primary driver, not individual behavior or biology.</p>
-                            </div>
-                            <div>
-                                <h3 class="font-semibold text-lg text-gray-800">3. Act</h3>
-                                <p class="text-gray-600">Engage in "pragmatic solidarity." Implement solutions that address structural barriers, such as community activism (e.g., trauma center fight), policy change, and creating equitable health systems.</p>
+                                <h3 class="font-semibold text-lg">Building Working-Class Power</h3>
+                                <p>Developing "collective efficacy" and creating "anchor institutions" are strategies to build economic and social power within disadvantaged communities to resist exploitation and improve material conditions.</p>
                             </div>
                         </div>
-                        <p class="book-ref mt-4 text-center">Ref: The Death Gap, Ch. 13 "Observe, Judge, Act"</p>
+                        <p class="book-ref mt-4 text-center">"An important contribution of Neo-Marxist class analysis is to break the chain between health inequality research and the 'policy mystique.'" - Muntaner et al.</p>
                     </div>
                 </div>
             </div>
 
             <div id="explains" class="tab-content">
                 <div class="concept-card p-6 md:p-8 reflection-text">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-4">What the Theory Explains: Structural Violence as the Root Cause</h2>
-                    <p class="text-gray-700">The theory map effectively uses Paul Farmer’s concept of “structural violence” as a powerful analytical lens to interpret the empirical evidence in David Ansell’s *The Death Gap*. Farmer’s theory posits that suffering is not random but is a predictable outcome of historical and economic processes that constrain agency and produce poor health outcomes for the vulnerable. He argues that “insidious assaults on dignity such as institutionalized racism and sexism also cause great and unjust injury” (Ansell, p. 3, quoting Farmer). The map visually charts this process, establishing structural violence as the root cause that manifests through specific mechanisms Ansell details, such as economic redlining, racial segregation, and the creation of a “separate and unequal” healthcare system. These large-scale forces become physically embodied in individuals, leading to higher rates of chronic disease, trauma, and premature death. Ansell’s investigation into the breast cancer mortality gap in Chicago perfectly illustrates this, concluding that the disparity is not a biological phenomenon but a “consequence of structural violence” (Ansell, p. 114) rooted in a segregated system where Black women receive care at under-resourced, lower-quality facilities. In this way, the map successfully demonstrates how Farmer’s macro-level theory provides the essential framework for understanding the specific, tragic neighborhood-level patterns that create and sustain the death gap.</p>
+                    <h2 class="text-2xl font-bold mb-4">What the Theory Explains: Exploitation as the Cause of Inequality</h2>
+                    <p>I think that Muntaner et al.’s Neo-Marxist framework gives us a strong way to explain and connect the patterns described in The Death Gap. While Ansell uses the term “structural violence,” I think that Muntaner et al. give it a clear, materialist meaning: exploitation. For me, I see his perspective as a way to explain why the death gap exists it goes beyond simply describing inequality to identifying its cause. It also argues that the comfort and health of the wealthy don’t just exist apart from poverty; they actually depend on it. As Muntaner et al. describe through the “inverse interdependent welfare principle,” “the material welfare of exploiters causally depends upon the material deprivations of the exploited” (p. 278).
+I see Ansell’s discussions of redlining, blockbusting, and predatory lending not just as examples of racial discrimination they also show this principle at work, where wealth is deliberately taken from Black communities to benefit speculators and financial institutions. Ansell recognizes this dynamic himself, noting that inequality is “perpetuated by the actions of the powerful to enrich themselves at the expense of others” (p. xiii, One Street, Two Worlds).
+I think that Muntaner’s framework also clarifies why the healthcare system is separate and unequal. I believe that this isn’t a mistake or design flaw, it’s the predictable result of a system that treats healthcare as a commodity, where access depends on class position, and class itself is shaped by ongoing relations of exploitation.</p>
                 </div>
             </div>
 
             <div id="obscures" class="tab-content">
                 <div class="concept-card p-6 md:p-8 reflection-text">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-4">What the Theory Obscures: Community Agency and Resilience</h2>
-                    <p class="text-gray-700">However, a strict application of structural violence theory risks portraying affected communities as merely passive recipients of overwhelming negative forces, which can obscure the vital role of local agency and resilience that Ansell highlights. The theory is less adept at explaining why two communities, both subjected to similar structural pressures, might have divergent health outcomes. Ansell explores this very question by comparing neighborhoods like Chatham and Roseland. Despite both being predominantly Black and facing similar economic hardships, “Chatham has consistently demonstrated better health outcomes than comparable neighborhoods” (Ansell, p. 147). This difference is attributed to Chatham’s high degree of “collective efficacy”—the social cohesion and willingness of residents to intervene for the common good. A theory focused solely on top-down structural oppression cannot easily account for this bottom-up social resilience. It does not fully explain the internal social dynamics and community-level organizing that can buffer residents against some of the worst health impacts of poverty and racism, creating pockets of relative well-being even within a landscape shaped by structural violence.</p>
+                    <h2 class="text-2xl font-bold mb-4">What the Theory cannot explain: The Importance of Race and Other Social Hierarchies
+</h2>
+                    <p>I believe that a strict Neo-Marxist class analysis, just like the one by Muntaner et al., puts economic production and class relations at the center of social inequality. I think that this is a great framework, but I also think that it can sometimes overlook how other hierarchies, especially race, work as big, and sometimes independent, forces shaping the death gap in the U.S. context. I think that Ansell does a great job in making it clear that race is not just a stand-in for class. For example, he notes that even when income is the same, “blacks have higher disease and mortality rates than whites” (Ansell, p. 62, Chapter Five).
+I think that Muntaner’s model also struggles to explain forms of structural violence that aren’t directly connected to economic production, such as exclusion based on immigration status. Ansell’s discussion of undocumented immigrants being denied organ transplants shows a kind of exclusion that comes from legal and national boundaries, not simply in class position. While undocumented people are almost always part of the exploited working class, their particular and deadly barrier to care is shaped by law and nationality. I believe that this shows that class exploitation, though central, is not the only powerful structure producing inequality.
+</p>
                 </div>
             </div>
 
             <div id="reconstruct" class="tab-content">
                 <div class="concept-card p-6 md:p-8 reflection-text">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Reconstructing the Theory: Integrating Community Efficacy</h2>
-                    <p class="text-gray-700">To better make sense of the empirical patterns in *The Death Gap*, Farmer’s theory could be reconstructed to incorporate community-level factors as key mediating variables. This revised model would not abandon structural violence as the primary determinant but would add a second layer of analysis focused on community efficacy and social capital. The theory would then posit that while structural forces create the conditions for the death gap, the magnitude of that gap in any given neighborhood is mediated by the strength of its internal social fabric. A community with high collective efficacy might successfully organize to bring in better resources, advocate against environmental hazards, or create supportive social networks that mitigate stress, thereby reducing the biological embodiment of structural violence. Conversely, a community where social cohesion has been eroded may be more vulnerable to these external pressures. This reconstructed theory would provide a more nuanced understanding, explaining both the overarching injustice of the death gap and the observable variations in health and longevity between neighborhoods that otherwise share the same history of disinvestment and marginalization.</p>
+                    <h2 class="text-2xl font-bold mb-4">Reconstructing the Theory: Integrating Race and Exploitation</h2>
+                    <p>To better explain the patterns shown in The Death Gap, I think that Muntaner et al.’s Neo-Marxist theory should be reworked to fully include ideas from racial capitalism and intersectionality. Rather than treating race as secondary to class, I think that this revised model would see class exploitation and racialization as interconnected and mutually reinforcing forces that can’t be separated in the U.S. context.
+I also think that this updated framework would also broaden the concept of “exploitation” beyond the extraction of labor in the workplace to include, for example, the ways value and resources are taken through systems of racialized control. These include the loss of wealth through racist housing practices like redlining, the extreme exploitation of communities through mass incarceration, and the denial of essential resources such as healthcare based on the effects of class, race, and legal status.
+By moving its focus from only the ownership of the means of production to the interaction of multiple systems of domination, I think that this reconstructed theory would give a fuller explanation of how social structures create premature death, capturing what Ansell calls “structural violence” in its complete form.
+"</p>
                 </div>
             </div>
         </div>
