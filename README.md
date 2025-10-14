@@ -2,7 +2,7 @@
 
 ### Analyzing David Ansell’s *The Death Gap* through the Neo-Marxist Framework of Muntaner et al.
 
-**Live Site:** [http://aronagaye.me/DEATHGAP/](http://aronagaye.me/DEATHGAP/)
+**Live Site:** [[http://aronagaye.me/DEATHGAP/](http://aronagaye.me/DEATHGAP/)](http://aronagaye.me/The-Death-Gap-Theory-Map/)
 
 ---
 
