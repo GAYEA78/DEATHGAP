@@ -27,7 +27,7 @@ This project visually and conceptually connects **Muntaner et al.’s Neo-Marxis
 The site is structured around four interactive sections that guide users from theory to critical reconstruction:
 
 * **Theory Map:** Outlines the Neo-Marxist class framework (Muntaner et al.) and maps it onto mechanisms of exploitation and domination evident in *The Death Gap*.
-* **What It Explains:** Shows how Muntaner’s theory clarifies the structural roots of inequality — specifically, how the well-being of the wealthy depends on the deprivation of the poor.
+* **What It Explains:** Shows how Muntaner’s theory clarifies the structural roots of inequality, specifically, how the well-being of the wealthy depends on the deprivation of the poor.
 * **What It Can’t Explain:** Identifies the framework’s limits, especially its underemphasis on race, immigration status, and other intersecting systems of hierarchy.
 * **Reconstructing Theory:** Proposes an expanded model integrating racial capitalism and intersectionality to explain how class, race, and legal status jointly produce “structural violence.”
 
@@ -37,7 +37,7 @@ The site is structured around four interactive sections that guide users from th
 
 ### 1. Exploitation as the Cause of Inequality
 
-Health disparities arise from exploitative economic relations where the welfare of one class depends on the deprivation of another — what Muntaner calls the **inverse interdependent welfare principle**.
+Health disparities arise from exploitative economic relations where the welfare of one class depends on the deprivation of another, what Muntaner calls the **inverse interdependent welfare principle**.
 
 ### 2. Domination and Social Control
 
@@ -70,7 +70,7 @@ A more complete model integrates **racial capitalism** and **intersectionality**
 
 ### Design
 
-* **Glassmorphism Interface:** Semi-transparent “glass” elements over a dark photographic background evoke visibility and opacity — key metaphors for structural violence.
+* **Glassmorphism Interface:** Semi-transparent “glass” elements over a dark photographic background evoke visibility and opacity, key metaphors for structural violence.
 * **Tabbed Navigation:** Separates complex ideas into clear, digestible sections.
 * **Responsive Layout:** Optimized for both desktop and mobile displays.
 
